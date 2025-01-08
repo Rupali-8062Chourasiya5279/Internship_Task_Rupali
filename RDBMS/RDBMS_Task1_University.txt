@@ -1,1 +1,2 @@
 1. select * from Student;
+1. select * from Professor;
