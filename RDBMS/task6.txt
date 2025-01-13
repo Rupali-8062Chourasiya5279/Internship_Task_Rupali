@@ -1,0 +1,54 @@
+1. Find the Total Number of Appointments for Each Doctor .
+
+select a.doctor_id,d.first_name as doctor_name,count(a.doctor_id) as total_appointment from appointments as a inner join doctors as d on a.doctor_id=d.doctor_id group by a.doctor_id;
+
+------------------------------------------------------------------------------------------------
+2. List All Patients Who Have an Appointment with a Specific Doctor (e.g., Dr. John Smith).
+
+select p.first_name, p.last_name, a.appointment_date from patients p JOIN appointments a on p.patient_id = a.patient_id;
+------------------------------------------------------------------------------------------------
+3. Find the Number of Appointments Scheduled in a Specific Department .
+
+select count(a.appointment_id) as total_appointment,d.department_id,ds.department_name from appointments as a  inner join
+ doctors as d on a.doctor_id=d.doctor_id inner join departments as ds on d.department_id=ds.department_id where a.status="scheduled" group by  d.department_id;
+
+-----------------------------------------------------------------------------------------
+4. Find the Most Popular Specialty Based on Number of Appointments.
+
+select count(a.appointment_id) as total_appointment,d.specialty_id,s.specialty_name from appointments as a  inner join doctors as d on a.doctor_id=d.doctor_id inner join specialties as s on d.specialty_id=s.specialty_id group by  d.specialty_id order by total_appointment limit 1;
+
+-------------------------------------------------------------------------------------------
+5. Get the Total Payment Amount for All Completed Appointments .
+
+select sum(p.payment_amount) from appointments as a
+inner join payments as p  on a.appointment_id=p.appointment_id where a.status="completed";
+
+----------------------------------------------------------------------------------------------
+6. Find the Number of Patients Seen by Each Doctor.
+
+select d.first_name,count(a.doctor_id), count(distinct a.patient_id) AS number_of_patients
+from doctors d JOIN appointments a on d.doctor_id = a.doctor_id where status="completed"
+group by d.first_name;
+------------------------------------------------------------------------------------------------
+9. Get the Average Payment Amount for Completed Appointments. 
+
+select avg(p.payment_amount) from appointments as a inner join payments as p on a.appointment_id=p.appointment_id where a.status="completed" ;
+
+------------------------------------------------------------------------------------------------
+8. Find the Total Number of Appointments for Each Status (Scheduled, Completed, Cancelled).
+
+select status,count(status) as total_appointment from appointments group by status;
+
+------------------------------------------------------------------------------------------------
+7. List All Patients Who Have Missed Their Appointments (Status 'Cancelled').
+
+select a.patient_id,p.first_name as patient_name from appointments as a inner join patients as p on p.patient_id=a.patient_id where a.status="cancelled";
+
+-----------------------------------------------------------------------------------------------
+10. Find the Doctor with the Highest Number of Appointments .
+
+select a.doctor_id,d.first_name as doctor_name,count(a.doctor_id) as total from appointments as a inner join doctors as d  on a.doctor_id = d.doctor_id group by a.doctor_id order by total desc limit 1;
+
+------------------------------------------------------------------------------------------------
+
+

@@ -1,2 +1,21 @@
-1. select * from Student;
-1. select * from Professor;
+1.	 select d.department_name,count(s.student_id) as total_student from students s join 	departments d on s.department_id=d.department_id group by department_name;
+
+2.	select p.professor_id, p.first_name as professor_name ,c.course_name from courses c join 	professors p on p.professor_id=c.professor_id ;
+
+3.	select c.course_name,avg(grade) as avg_grade from enrollments e join courses c on 	c.course_id=e.course_id group by course_name;
+
+4.	select s.first_name as student_name from students s left join enrollments e on 	e.student_id=s.student_id where course_id is null;
+
+5.	select department_name,count(course_name) as total_courses from courses join departments on             	courses.department_id=departments.department_id group by department_name;
+
+6.
+
+
+7.	select max(count) from ( select count(student_id) as count from enrollments group by 	course_id) as course_count;
+
+8.
+
+9.
+
+
+10.	select max(e.grade),min(e.grade),c.course_name from enrollments e join courses c on 	c.course_id=e.course_id group by course_name;
