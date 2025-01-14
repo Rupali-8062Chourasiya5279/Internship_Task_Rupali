@@ -1,0 +1,56 @@
+1. Retrieve the names and contact details of employees hired after January 1, 2023.
+
+select  first_name,last_name,Email,phone,hiredate from employees where hiredate > "2023-01-01";
+--------------------------------------------------------------------------------------------
+2. Find the total payroll amount paid to each department.
+
+ select sum(p.amount) as total_amount,d.department_name,d.department_id from payroll as p
+ inner join employees as e on e.employee_id=p.employeeID
+ inner join departments as d on  d.department_id=e.department_id
+ group by e.department_id;
+--------------------------------------------------------------------------------------------
+3. List all employees who have not been assigned a manager.
+
+select Employee_id,first_name as Employee_name  from employees where managerID is null;
+
+--------------------------------------------------------------------------------------------
+4. Retrieve the highest salary in each department along with the employee’s name.
+
+select first_name as employee_name, employee_id,max(salary),department_id from employees group by department_id,employee_name,employee_id ;
+--------------------------------------------------------------------------------------------
+
+ 5. Find the most recent performance review for each employee.
+
+select pr.employee_id, MAX(pr.reviewDate) as most_recent_review FROM performancereviews pr group by pr.employee_id;
+
+--------------------------------------------------------------------------------------------
+
+ 6. Count the number of employees in each department.
+
+select count(employee_id),department_id from employees group by department_id;
+--------------------------------------------------------------------------------------------
+
+ 7. List all employees who have received a performance score of "Excellent." 
+
+select p.employee_id,e.first_name as employeename  from performancereviews as p  inner join employees as e on p.employee_id = e.employee_id where p.performancescore ="A";
+
+--------------------------------------------------------------------------------------------
+
+10. Identify the most frequently used payment method in payroll.
+
+select paymentMethod,count(paymentMethod) as frequent from payroll group by paymentMethod order by frequent desc limit 1 ; 
+--------------------------------------------------------------------------------------------
+
+8. Retrieve the top 5 highest-paid employees along with their departments.
+
+select e.employee_id,e.first_name,e.salary,e.department_id,d.department_name from employees as e
+ inner join departments as d on e.department_id=d.department_id order by e.salary desc limit 5;
+--------------------------------------------------------------------------------------------
+
+ 9. Showdetails of all employees who report directly to a specific manager (e.g.,
+ ManagerID = 101)
+
+select * from employees where  not managerId is null;
+--------------------------------------------------------------------------------------------
+
+
