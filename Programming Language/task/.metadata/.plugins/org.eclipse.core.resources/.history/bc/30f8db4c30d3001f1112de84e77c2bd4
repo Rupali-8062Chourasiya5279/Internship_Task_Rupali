@@ -1,0 +1,7 @@
+package todolistapplication;
+
+public class AllQueries {
+	
+	public static final  String insertAll = "insert into task (title,status) values(?,?)";
+
+}

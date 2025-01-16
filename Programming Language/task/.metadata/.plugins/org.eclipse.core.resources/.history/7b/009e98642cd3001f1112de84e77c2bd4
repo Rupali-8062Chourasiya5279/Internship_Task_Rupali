@@ -1,0 +1,43 @@
+package todolistapplication;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Scanner;
+public class AddTask {
+
+ 
+	Scanner sc=new Scanner(System.in);
+	
+	public void add() {
+		
+		int c;
+		
+		do {
+			System.out.println("Press 1. for add in all columns task .");
+			System.out.println("Press 2. for add only title .");
+			System.out.println("Press 3. for exit from adding tasks .");
+			System.out.println("Enter your choice : ");
+			
+			c=sc.nextInt();
+			
+				switch(c)
+				{
+				
+				case 1: addAll();
+				break;
+			
+				case 2:
+				break;
+			
+				case 3: System.out.println("Exiting application.......");
+				break;
+			
+				}
+			}while(c!=3);
+	}
+	
+	
+	public void addAll() 
+	{
+		
+	}
+}

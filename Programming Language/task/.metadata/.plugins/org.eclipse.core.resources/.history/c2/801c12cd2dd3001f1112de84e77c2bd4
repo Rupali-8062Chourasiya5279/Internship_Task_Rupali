@@ -1,0 +1,13 @@
+package todolistapplication;
+
+
+public class TaskMain {
+	public static void main(String args[])  
+	{
+		SwitchTask sw = new SwitchTask();
+		sw.task();
+
+	}
+
+
+}

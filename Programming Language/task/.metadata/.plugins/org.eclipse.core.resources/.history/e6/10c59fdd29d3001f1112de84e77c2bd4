@@ -1,0 +1,35 @@
+package todolistapplication;
+import java.util.Scanner;
+public class AddTask {
+
+	Scanner sc=new Scanner(System.in);
+	public void add() {
+		int c;
+		do {
+			System.out.println("Press 1. for add task .");
+			System.out.println("Press 2. for update task .");
+			System.out.println("Press 3. for delete task .");
+			System.out.println("Press 4. for select task .");
+			System.out.println("Press 5. for exit from application .");
+			System.out.println("Enter your choice : ");
+			
+			c=sc.nextInt();
+			
+			switch(c)
+			{
+			
+			case 1: AddTask at=new AddTask();
+					at.add();
+			break;
+			
+			case 2:
+			break;
+			
+			case 3: System.out.println("Exiting application.......");
+			break;
+			
+			}
+			}while(c!=3);
+	}
+
+}

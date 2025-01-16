@@ -1,0 +1,90 @@
+package todolistapplication;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+public class AddTask {
+
+ 
+	Scanner sc=new Scanner(System.in);
+	ConnectionClass cc=new ConnectionClass();
+	public void add() throws ClassNotFoundException, SQLException {
+		
+		int c;
+		
+		do {
+			System.out.println("Press 1. for add task  .");
+			System.out.println("Press 2. for add title1 .");
+			System.out.println("Press 3. for exit from adding tasks .");
+			System.out.println("Enter your choice : ");
+			
+			c=sc.nextInt();
+			
+				switch(c)
+				{
+				
+				case 1: addAll();
+				break;
+			
+				case 2: addtitle();
+				break;
+			
+				case 3: System.out.println("Exiting application.......");
+				break;
+			
+				}
+			}while(c!=3);
+	}
+	
+	
+	public void addAll() throws ClassNotFoundException, SQLException
+	{
+		Connection con=cc.connect();
+		
+		System.out.println("Enter title of task ");
+		String title=sc.nextLine();
+
+		String tite=sc.nextLine();
+		
+		System.out.println("Enter status. ");
+		String status=sc.nextLine();
+		String q=AllQueries.insert;
+		
+		PreparedStatement ps=con.prepareStatement(q);
+		ps.setString(1,tite);
+		ps.setString(2, status);
+		int i=ps.executeUpdate();
+		if(i>0)
+		{
+			System.out.println("task added successfully.");
+		}
+		else
+		{
+			System.out.println("failed to add task.");
+		}
+		ps.close();
+	}
+	public void addtitle() throws ClassNotFoundException, SQLException
+	{
+		Connection con=cc.connect();
+		
+		System.out.println("Enter title ");
+		String title=sc.nextLine();
+		
+		String q=AllQueries.inserttitle;
+		
+		PreparedStatement ps=con.prepareStatement(q);
+		ps.setString(1, title);
+		
+		int i = ps.executeUpdate();
+		if(i>0)
+		{
+			System.out.println("Title added Successfully .");
+		}
+		else
+		{
+			System.out.println("Failed to add title .");
+		}
+		
+	}
+}

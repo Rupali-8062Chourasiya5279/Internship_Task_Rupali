@@ -1,0 +1,105 @@
+package todolistapplication;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class DeleteTask {
+
+	Scanner sc=new Scanner(System.in);
+	ConnectionClass cc=new ConnectionClass();
+	public void delete() throws ClassNotFoundException, SQLException {
+		int c;
+		
+		do {
+			System.out.println("Press 1. for delete  all task .");
+			System.out.println("Press 2. for delet by status .");
+			System.out.println("Press 3. for delet by title .");
+			System.out.println("Press 4. for delet by id .");
+			System.out.println("Press 5. for delete by title and status both .");
+			System.out.println("Press 6. for exit from adding tasks .");
+			System.out.println("Enter your choice : ");
+			
+			c=sc.nextInt();
+			
+				switch(c)
+				{
+				
+				case 1: deleteAll();
+				break;
+				
+				case 2: deletestatus();
+				break;
+				
+				case 3: deletetitle();
+				break;
+				
+				case 4: deleteid();
+				break;
+				
+				case 5: deleteid();
+				break;
+				
+				case 6: System.out.println("Exiting application.......");
+				break;
+			
+				}
+			}while(c!=6);
+		
+		
+	}
+	
+	public void deletetitle() throws ClassNotFoundException, SQLException
+	{
+	Connection con=cc.connect();	
+	
+	System.out.println("Enter task title .");
+	String tile = sc.nextLine();
+	String title = sc.nextLine();
+	
+	String q=AllQueries.deletetitle;
+	
+	PreparedStatement ps=con.prepareStatement(q);
+	ps.setString(1,title);
+	
+	int i=ps.executeUpdate();
+	
+	if(i>0)
+	{
+		System.out.println("Data deleted Successfully.");
+	}
+	else
+	{
+		System.out.println("Failed to delete data.");
+	}
+	}
+	
+	
+	public void deletetestatus() throws ClassNotFoundException, SQLException
+	{
+		Connection con=cc.connect();	
+		
+		
+		System.out.println("Enter task  status .");
+		String status = sc.next();
+		
+		String q=AllQueries.deletestatus;
+		
+		PreparedStatement ps=con.prepareStatement(q);
+		ps.setString(1, status);
+		
+		int i=ps.executeUpdate();
+		
+		if(i>0)
+		{
+			System.out.println("Data deleted Successfully.");
+		}
+		else
+		{
+			System.out.println("Failed to delete data.");
+		}	
+	}
+	
+	
+}

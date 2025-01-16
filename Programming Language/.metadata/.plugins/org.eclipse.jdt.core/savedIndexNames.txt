@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+C:\Users\LENOVO\Documents\Internship\Internship_Task_Rupali\Programming Language\.metadata\.plugins\org.eclipse.jdt.core
+4226765229.index
+1865797976.index
+1189343029.index
+2861420163.index

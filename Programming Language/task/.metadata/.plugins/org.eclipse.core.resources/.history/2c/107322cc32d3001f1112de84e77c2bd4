@@ -1,0 +1,47 @@
+package todolistapplication;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class UpdateTask {
+
+	Scanner sc=new Scanner(System.in);
+	ConnectionClass cc=new ConnectionClass();
+	public void update() throws ClassNotFoundException, SQLException {
+		int c;
+		
+		do {
+			System.out.println("Press 1. for add task .");
+			System.out.println("Press 2. for exit from adding tasks .");
+			System.out.println("Enter your choice : ");
+			
+			c=sc.nextInt();
+			
+				switch(c)
+				{
+				
+				case 1: updateAll();
+				break;
+			
+				case 2: System.out.println("Exiting application.......");
+				break;
+			
+				}
+			}while(c!=2);
+		
+		
+	}
+	public void updateAll() throws ClassNotFoundException, SQLException
+	{
+	Connection con=cc.connect();	
+	
+	System.out.println("Enter task and status .");
+	String title = sc.nextLine();
+	String status = sc.next();
+	
+	String q=AllQueries.update;
+	}
+	
+
+}

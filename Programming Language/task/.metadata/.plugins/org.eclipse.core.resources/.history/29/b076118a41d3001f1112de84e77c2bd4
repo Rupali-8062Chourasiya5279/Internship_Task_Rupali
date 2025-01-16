@@ -1,0 +1,43 @@
+package todolistapplication;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class DeleteTask {
+
+	Scanner sc=new Scanner(System.in);
+	ConnectionClass cc=new ConnectionClass();
+	public void delete() throws ClassNotFoundException, SQLException {
+		int c;
+		
+		do {
+			System.out.println("Press 1. for delete  all task .");
+			System.out.println("Press 2. for delet by status .");
+			System.out.println("Press 4. for delet by id .");
+			System.out.println("Press 3. for delete by title and status both .");
+			System.out.println("Press 5. for exit from adding tasks .");
+			System.out.println("Enter your choice : ");
+			
+			c=sc.nextInt();
+			
+				switch(c)
+				{
+				
+				case 1: updatetitle();
+				break;
+				
+				case 2: updatestatus();
+				break;
+				
+				case 3: updateAll();
+				break;
+			
+				case 4: System.out.println("Exiting application.......");
+				break;
+			
+				}
+			}while(c!=4);
+		
+		
+	}
+}

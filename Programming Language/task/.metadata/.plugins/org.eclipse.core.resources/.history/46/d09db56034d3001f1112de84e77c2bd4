@@ -1,0 +1,9 @@
+package todolistapplication;
+
+public class AllQueries {
+	
+	static final  String insert = "insert into task (title) values(?)";
+	static final String update = "update task set task=? and status=? where sno=?";
+	
+
+}

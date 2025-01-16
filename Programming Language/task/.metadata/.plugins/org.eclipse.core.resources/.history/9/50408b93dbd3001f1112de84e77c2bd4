@@ -1,0 +1,158 @@
+package todolistapplication;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class SelectTask {
+	
+	Scanner sc=new Scanner(System.in);
+	ConnectionClass cc=new ConnectionClass();
+	public void select() throws ClassNotFoundException, SQLException {
+		int c;
+		
+		do {
+			System.out.println("Press 1. for select  all task .");
+			System.out.println("Press 2. for select by status .");
+			System.out.println("Press 3. for select by title .");
+			System.out.println("Press 4. for select by id .");
+			System.out.println("Press 5. for select by title and status both .");
+			System.out.println("Press 6. for exit from selecting tasks .");
+			System.out.println("Enter your choice : ");
+			
+			c=sc.nextInt();
+			
+				switch(c)
+				{
+				
+				case 1: selectAll();
+				break;
+				
+				case 2: selectstatus();
+				break;
+				
+				case 3: selecttitle();
+				break;
+				
+				case 4: selectid();
+				break;
+				
+				case 5: selecttitlestatus();
+				break;
+				
+				case 6: System.out.println("Exiting application.......");
+				break;
+			
+				}
+			}while(c!=6);
+		
+		
+	}
+	
+	public void selecttitle() throws ClassNotFoundException, SQLException
+	{
+	Connection con=cc.connect();
+	System.out.println("Enter title : ");
+	String title=sc.next();
+	String q=AllQueries.selecttitle;
+	PreparedStatement ps=con.prepareStatement(q);
+	ps.setString(1, title);
+	ResultSet rs=ps.executeQuery();
+	
+	while(rs.next())
+	{
+		System.out.println(rs.getInt(1)+"      "+rs.getString(2)+"      "+rs.getString(3));
+	}
+	
+	}
+	
+	
+	public void selectstatus() throws ClassNotFoundException, SQLException
+	{
+		Connection con=cc.connect();	
+		
+		
+		System.out.println("Enter task  status .");
+		String status = sc.next();
+		
+		String q=AllQueries.selectstatus;
+		
+		PreparedStatement ps=con.prepareStatement(q);
+		ps.setString(1, status);
+		
+		ResultSet rs=ps.executeQuery();
+		
+		while(rs.next())
+		{
+			System.out.println(rs.getInt(1)+"      "+rs.getString(2)+"      "+rs.getString(3));
+		}
+	}
+	
+	public void selectAll() throws ClassNotFoundException, SQLException
+	{
+	Connection con=cc.connect();	
+	
+	String q=AllQueries.select;
+	PreparedStatement ps=con.prepareStatement(q);
+	
+	ResultSet rs=ps.executeQuery();
+	
+	while(rs.next())
+	
+	{
+		System.out.println(rs.getInt(1)+"     "+rs.getString(2)+"     "+rs.getString(3));
+	}
+	
+	}
+	
+	
+	public void selectid() throws ClassNotFoundException, SQLException
+	{
+		Connection con=cc.connect();	
+		
+		System.out.println("Enter id");
+		int sno=sc.nextInt();
+		
+	
+		
+		String q=AllQueries.selectid;
+		
+		PreparedStatement ps=con.prepareStatement(q);
+		ps.setInt(1, sno);
+
+		ResultSet rs=ps.executeQuery();
+		
+		while(rs.next())
+		{
+			System.out.println(rs.getInt(1)+"      "+rs.getString(2)+"      "+rs.getString(3));
+		}
+	
+	}
+	
+	public void selecttitlestatus() throws ClassNotFoundException, SQLException
+	{
+	Connection con=cc.connect();	
+	
+	System.out.println("Enter task and status .");
+
+	String title = sc.next();
+	
+	
+	String status = sc.next();
+	
+	String q=AllQueries.selecttitlestatus;
+	
+PreparedStatement ps=con.prepareStatement(q);
+	
+	ResultSet rs =ps.executeQuery();
+	System.out.println(rs.getInt(1));
+	while(rs.next())
+	{
+		System.out.println(rs.getInt(1)+"      "+rs.getString(2)+"      "+rs.getString(3));
+	}
+
+	}
+}

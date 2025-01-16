@@ -1,0 +1,11 @@
+package todolistapplication;
+
+public class SwitchTask {
+	
+
+
+	public void task() {
+		// TODO Auto-generated method stub
+		
+	}
+}

@@ -1,0 +1,25 @@
+package todolistapplication;
+
+public class AllQueries {
+	
+	static final  String insert = "insert into task (title,status) values(?,?)";
+	static final  String inserttitle = "insert into task (title) values(?)";
+	
+	
+	static final String update = "update task set title=? , status=? where sno=?";
+	static final String updatetitle = "update task set title=?  where sno=?";
+	static final String updatestatus = "update task set  status=? where sno=?";
+	
+	static final String deletetitle = " delete from  task where title=? ";
+	static final String deletestatus = "delete from task where  status=? ";
+	static final String delete = "delete  from task ";
+	static final String deleteid = "delete  from task where sno=? ";
+	static final String deletetitlestatus = "delete from  task where title=? and status=? ";
+	
+	
+	static final String selecttitle ="select * from task where title=?;";
+	static final String selectstatus ="select * from task  where status=?;";
+	static final String select ="select * from task;";
+	static final String selectid ="select * from task where sno=?;";
+	static final String selecttitlestatus ="select * from task where title=? and status=?;";
+}
