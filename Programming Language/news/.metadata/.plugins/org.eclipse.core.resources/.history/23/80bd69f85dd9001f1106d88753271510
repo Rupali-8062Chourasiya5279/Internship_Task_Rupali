@@ -1,0 +1,9 @@
+package newsapp_package;
+
+public class News {
+	public void news()
+	{
+		
+	}
+
+}

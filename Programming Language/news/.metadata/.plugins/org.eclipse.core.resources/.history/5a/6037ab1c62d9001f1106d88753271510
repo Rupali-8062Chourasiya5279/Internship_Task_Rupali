@@ -1,0 +1,12 @@
+package newsapp_package;
+
+import java.sql.Connection;
+
+public class ConnectionJDBC {
+	
+	public Connection connect()
+	{
+		
+	}
+
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Que1</title>
+<style>
+body
+{
+background-color: #7ce0f4;
+}
+#div1
+{
+background-color: white;
+height :500px ;
+width : 600px;
+margin-left: 40%;
+margin-top: 10%;
+}
+h3
+{
+font-family: sans-serif;
+font-size: 20px;
+color: #0f5866;
+
+}
+</style>
+</head>
+<body>
+	<form action="First">
+	<div id="div1">
+	<h3>Which of the following is used to handle exceptions in Java?</h3>
+	<input type="radio" name="q1" value="catch">catch</input><br>
+	<input type="radio" name="q1" value="try-catch">try-catch</input><br>
+	<input type="radio" name="q1" value="finally">finally</input><br>
+	<input type="radio" name="q1" value="throws">throws</input><br>
+	<a href="rules.html">Previous</a>
+	<input type="submit" value="Save&Next">
+	</div>
+	</form>
+</body>
+</html>

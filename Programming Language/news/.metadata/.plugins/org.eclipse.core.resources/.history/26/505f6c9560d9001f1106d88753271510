@@ -1,0 +1,15 @@
+package newsapp_package;
+
+public class NewsService {
+
+	public void addDetail() {
+		
+		
+	}
+
+	public void listNews() {
+		
+		
+	}
+
+}

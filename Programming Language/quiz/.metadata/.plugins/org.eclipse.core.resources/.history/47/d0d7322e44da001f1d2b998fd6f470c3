@@ -1,0 +1,58 @@
+package quixservlet;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
+@WebServlet("/First")
+public class First extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+   
+    public First() {
+        super();
+       
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter pw =response.getWriter();
+		pw.println("hello");
+		System.out.println("doget");
+		//int score =0;
+		String ans1 = request.getParameter("q1");
+		System.out.println(ans1);
+//		if(ans1 != null) {
+//			System.out.println("inside pehla if");
+//		if(ans1.equalsIgnoreCase("try-catch"))
+//		{
+//			System.out.println("inside second if");
+//			score++;
+//			System.out.println("Correct");
+//			System.out.println("score "+score);
+//			session.setAttribute("sc",score);
+//			response.sendRedirect("second.html");	
+//		}
+//		}
+//		else
+//		{
+//		response.sendRedirect("Home.html");	
+//		}
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("dopost");
+		doGet(request, response);
+	}
+
+}

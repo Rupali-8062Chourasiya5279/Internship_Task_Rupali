@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\LENOVO\Desktop\quiz\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+787229209.index
+3669737649.index
+1705912241.index
+645788650.index
+4199622231.index
+656735592.index
+1140285063.index

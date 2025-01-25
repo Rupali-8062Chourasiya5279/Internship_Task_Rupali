@@ -1,0 +1,22 @@
+package newsapp_package;
+
+public class NewsService {
+	
+	Scanner sc = new Scanner(System.in);
+	ConnectionJDBC co = new ConnectionJDBC();
+	public void addDetail()  {
+		int c;
+		
+	switch(c)
+	{
+	
+	}		
+		
+	}
+
+	public void listNews() {
+		
+		
+	}
+
+}

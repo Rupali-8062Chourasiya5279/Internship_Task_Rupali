@@ -1,0 +1,14 @@
+package newsapp_package;
+import java.util.Scanner;
+public class News {
+	public void news()
+	{
+		System.out.println("news");
+		Scanner sc = new Scanner(System.in);
+		int ch ;
+		System.out.println("1. Add news details .");
+		System.out.println("2. List news .");
+		System.out.println("3. Exit app .");
+	}
+
+}

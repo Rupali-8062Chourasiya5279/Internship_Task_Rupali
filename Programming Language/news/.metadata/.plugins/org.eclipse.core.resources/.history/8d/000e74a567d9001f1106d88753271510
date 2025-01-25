@@ -1,0 +1,17 @@
+package newsapp_package;
+
+public class Queries {
+	
+	private static String addtitle = "";
+
+	public static String getAddtitle() {
+		return addtitle;
+	}
+
+	public static void setAddtitle(String addtitle) {
+		Queries.addtitle = addtitle;
+	} 
+	
+	
+
+}

@@ -1,0 +1,62 @@
+package newsapp_package;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+public class NewsService {
+	
+	Scanner sc = new Scanner(System.in);
+	ConnectionJDBC co = new ConnectionJDBC();
+	public void addDetail() throws ClassNotFoundException, SQLException  {
+		int c;
+		System.out.println("1. Enter News Title .");
+		System.out.println("2. Enter News Details .");
+		System.out.println("3. Enter Photo Path or Url .");
+		c = sc.nextInt();
+	switch(c)
+	{
+	case 1 : addtitle();
+	break;
+	
+	case 2: 
+	break;
+	
+	case 3 :
+	break;
+	
+	default:
+	{
+		System.out.println("Enter valid choice ..................");
+	}
+	
+	}		
+		
+	}
+
+	public void addtitle() throws SQLException, ClassNotFoundException
+	{
+		System.out.println("Enter title of the news : ");
+		String title = sc.nextLine();
+		String tit = sc.next();
+		Connection con = co.connect();
+		String q = Queries.getAddtitle(title); 
+		PreparedStatement ps = con.prepareStatement(q);
+		int i  = ps.executeUpdate();
+		if(i != 0)
+		{
+			System.out.println("Title added Successfully...");
+		}
+		else
+		{
+			System.out.println("Failed to add title...");
+		}
+	}
+	
+	public void listNews() {
+		
+		
+	}
+
+}

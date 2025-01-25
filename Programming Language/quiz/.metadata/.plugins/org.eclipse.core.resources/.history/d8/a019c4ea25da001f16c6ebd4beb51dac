@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Que5</title>
+</head>
+<body>
+	<form action="First">
+	<div>
+	<h3>Which keyword is used to prevent a method from being overridden in Java?</h3>
+	<input type="radio" name="q5" value="static">static</input>
+	<input type="radio" name="q5" value="final">final</input>
+	<input type="radio" name="q5" value="private">private</input>
+	<input type="radio" name="q5" value="protected">protected</input>
+	<a href="Fourth.html">Previous</a>
+	<input type="submit" value="Save&Next">
+	</div>
+	</form>
+</body>
+</html>

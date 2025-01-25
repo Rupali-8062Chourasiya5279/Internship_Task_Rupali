@@ -1,0 +1,25 @@
+package newsapp_package;
+
+public class Queries {
+	
+	private static String addtitle = "insert into newsapp (title) values(?);";
+	private static String addesc = "insert into newsapp (details) values(?);";
+	public static String getAddtitle() {
+		return addtitle;
+	}
+
+	public static void setAddtitle(String addtitle) {
+		Queries.addtitle = addtitle;
+	}
+
+	public static String getAddesc() {
+		return addesc;
+	}
+
+	public static void setAddesc(String addesc) {
+		Queries.addesc = addesc;
+	} 
+	
+	
+
+}

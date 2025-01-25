@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Que2</title>
+</head>
+<body>
+	<form action="First" method="post">
+	<div>
+	<h3>Who invented JAVA  and when?</h3>
+	<input type="radio" name="q2" value="James Gosling 1991">Games Gosling 1991</input>
+	<input type="radio" name="q2" value="Guido van Rossum">Guido van Rossum 1990</input>
+	<input type="radio" name="q2" value="Bjarne Stroustrup">Bjarne Stroustrup 1971</input>
+	<input type="radio" name="q2" value="Dennis Ritchie">Dennis Ritchie 1980</input>
+	<a href="First.html">Previous</a>
+	<input type="submit" value="Save&Next">
+	</div>
+	</form>
+</body>
+</html>

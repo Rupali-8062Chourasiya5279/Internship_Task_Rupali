@@ -1,0 +1,11 @@
+package newsapp_package;
+
+public class News {
+	public void news()
+	{
+		System.out.println("news");
+		int ch ;
+		System.out.println("1. Add news details .");
+	}
+
+}

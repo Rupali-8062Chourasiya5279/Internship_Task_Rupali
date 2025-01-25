@@ -1,0 +1,21 @@
+package newsapp_package;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class NewsService {
+	
+	
+	ConnectionJDBC co = new ConnectionJDBC();
+	public void addDetail() throws ClassNotFoundException, SQLException {
+		Connection con=co.connect();
+		
+		
+	}
+
+	public void listNews() {
+		
+		
+	}
+
+}

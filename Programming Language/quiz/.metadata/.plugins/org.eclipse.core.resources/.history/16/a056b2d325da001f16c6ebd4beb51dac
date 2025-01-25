@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Que1</title>
+</head>
+<body>
+	<form action="Main" method="post">
+	<div>
+	<h3>Which of the following is used to handle exceptions in Java?</h3>
+	<input type="radio" name="q1" value="catch">catch</input><br>
+	<input type="radio" name="q1" value="try-catch">try-catch</input><br>
+	<input type="radio" name="q1" value="finally">finally</input><br>
+	<input type="radio" name="q1" value="throws">throws</input><br>
+	<a href="rules.html">Previous</a>
+	<input type="submit" value="Save&Next">
+	</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rules</title>
+<style>
+ #div1
+ {
+ margin-left:30%;
+ margin-top:5%;
+ height:400px;
+ width:600px;
+background-color: white;
+ }
+ h3
+ {
+ padding:35px;
+ font: bold;
+ color: #0f5866;
+ font-family: sans-serif;
+ font-size: 25px;
+ margin-left: 20%;
+ }
+ a{
+ text-decoration: none;
+ background-color: navy;
+ padding: 8px;
+ color: white;
+ border-radius: 10px;
+ font-family: fantasy;
+ font-weight: bold;
+ }
+ body
+ {
+ background-color: #e9fbfe;
+ }
+ 
+</style>
+</head>
+<body>
+	<form action="First.html">
+	<div id="div1">
+	<h3>Rules & Regulations</h3>
+	<hr>
+	<br>
+	<ol id="li">
+	<li>You will have 15 seconds for each question.</li>
+	<li>You can not select multiple options.</li>
+	<li>you can not select any options onces time goes off.</li>
+	<li>You can't exit from quiz while you are playing </li>
+	<li>You will get points on the basis of correct answer.</li>
+	<li>No negative marking on wrong answer.</li>
+	</ol>
+	<input type="radio" required>I accept your terms and conditions.</input>
+	<br>
+	<hr>
+	<br>
+	<a href="Home.html">Exit</a>
+		<!--  <a href="First.html" style="float: right;margin-right: 15px;">Continue</a>-->
+	
+	<input type="submit" value="Continue">
+ </div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,102 @@
+package quixservlet;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+
+@WebServlet("/Main")
+public class First extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+   
+    public First() {
+        super();
+       
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws ServletException, IOException {
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter pw =response.getWriter();
+		pw.println("Hello");
+		int score =0;
+		String ans1 = request.getParameter("q1");
+		String ans2 = request.getParameter("q2");
+		String ans3 = request.getParameter("q3");
+		String ans4 = request.getParameter("q4");
+		String ans5 = request.getParameter("q5");
+		if(ans1 != null || ans2 != null || ans3 != null || ans4 != null || ans5 !=null) {
+		if(ans1.equalsIgnoreCase("try-catch"))
+		{
+			score++;
+			pw.println("Correct");
+			pw.println("score "+score);
+			session.setAttribute("sc",score);
+			response.sendRedirect("second.html");	
+		}
+		else if(ans2.equalsIgnoreCase("James Gosling 1991"))
+		{
+			score++;
+			pw.println("Correct");
+			pw.println("score "+score);
+			session.setAttribute("sc",score);
+			response.sendRedirect("Third.html");
+			
+		}
+
+		else if(ans3.equalsIgnoreCase("null"))
+		{
+			score++;
+			pw.println("Correct");
+			pw.println("score "+score);
+			session.setAttribute("sc",score);
+			response.sendRedirect("Fourth.html");
+			
+		}
+		
+		else if(ans4.equalsIgnoreCase("main()"))
+		{
+			score++;
+			pw.println("Correct");
+			pw.println("score "+score);
+			session.setAttribute("sc",score);
+			response.sendRedirect("Fifth.html");
+			
+		}
+		
+		else if(ans5.equalsIgnoreCase("final"))
+		{
+			score++;
+			pw.println("Correct");
+			pw.println("score "+score);
+			session.setAttribute("sc",score);
+			response.sendRedirect("Result");
+		
+		}
+		else
+		{
+			session.setAttribute("sc",score);
+			response.sendRedirect("Result");
+		}
+		}
+		else
+		{
+		response.sendRedirect("Home.html");	
+		}
+		
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		doGet(request, response);
+	}
+
+}

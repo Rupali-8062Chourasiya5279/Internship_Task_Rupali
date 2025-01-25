@@ -1,0 +1,43 @@
+package quixservlet;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@WebServlet("/Result")
+public class Result extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+  
+    public Result() {
+        super();
+    }
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter pw = response.getWriter();
+		HttpSession session = request.getSession();
+		int a = (int) session.getAttribute("sc");
+	//	pw.println("<html>");
+		pw.println("<body style='background-color:#e9fbfe;'>");
+		pw.println("<div style='margin-top:5%;height:40%;width:45%;background-color:white;margin-left:35%;'>");
+		pw.println("<h1 style='color:#0f5866;'>"+"score "+a+" out of 5 "+"</h1>");
+		pw.println("<a style='padding:5px 10px 5px 10px ;color:#0f5866;text-decoration:none;font-family:arial;background-color:#0f5866;color:white;border-radius:10px;' href='Home.html'>Replay-Quiz</a>");
+		pw.println("<a style='padding:5px 10px 5px 10px ;color:#0f5866;text-decoration:none;font-family:arial;background-color:#0f5866;color:white;border-radius:10px;' href='Home.html'>Quit-Quiz</a>");
+		pw.println("</div>");
+		pw.println("</body>");
+	//	pw.println("<html>");
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		doGet(request, response);
+	}
+
+}
