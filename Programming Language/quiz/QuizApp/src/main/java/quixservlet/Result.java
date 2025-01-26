@@ -35,7 +35,7 @@ public class Result extends HttpServlet {
 		}
 		else
 		{
-			pw.println("<h3 style='color:Red;margin-left:150px;'>Sorry</h3>");
+			pw.println("<h3 style='color:Red;margin-left:150px;'>oops</h3>");
 			pw.println("<h3 style='color:Red;margin-left:80px;'>! You Loose The Quiz !</h3>");
 			pw.println("<h4 style='color:Blue;margin-left:90px;'>Better Luck Next Time</h4>");
 		}
