@@ -1,0 +1,68 @@
+package implementingservice;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.query.Query;
+
+import com.entities.User;
+
+import crudoperation.SelectUserData;
+
+public class SelectBl implements SelectUserData{
+
+	Scanner sc = new Scanner(System.in);
+	@Override
+	public void selectData() {
+		int c;
+		do
+		{
+			System.out.println("1. Show All Users .");
+			System.out.println("2. Select  user.");
+			System.out.println("3.  .");
+			System.out.println("4. Update Password of user .");
+			System.out.println("5. Update Email id of user  .");
+			System.out.println("6. Update Name of user .");
+			System.out.println("7. Update Mobile number of user .");
+			System.out.println("8. Exit");
+			System.out.println("Enter your choice : ");
+			c = sc.nextInt();
+			System.out.println("Enter User id :");
+			int id = sc.nextInt();
+			
+			switch(c)
+			{
+			case 1: updateData1(s, tx, id);
+				break;
+				
+			case 2: updateData2(s, tx, id);
+				break;
+				
+			case 3: updateData3(s, tx, id);
+			break;
+			
+			case 4: updateData4(s, tx, id);
+			break;
+			
+			case 5: updateData5(s, tx, id);
+				break;
+				
+			case 6: updateData6(s, tx, id);
+				break;
+				
+			case 7: updateData7(s, tx, id);
+			break;
+				
+			case 8: System.out.println("Exiting from fetching the users.");
+				break;
+				
+			default:
+				System.out.println("Enter choice from given options only.");
+			}
+			
+		}
+		while(c!=8);
+		
+	}
+
+}

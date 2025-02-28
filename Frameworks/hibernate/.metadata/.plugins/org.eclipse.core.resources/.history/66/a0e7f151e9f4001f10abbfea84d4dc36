@@ -1,0 +1,10 @@
+package implementingservice;
+
+import java.util.Scanner;
+
+import crudoperation.UpdateUserData;
+
+public class UpdateBl implements UpdateUserData{
+	Scanner sc = new Scanner(System.in);
+
+}

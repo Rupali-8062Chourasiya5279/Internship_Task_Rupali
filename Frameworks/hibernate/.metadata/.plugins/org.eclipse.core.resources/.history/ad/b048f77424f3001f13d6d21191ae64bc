@@ -1,0 +1,52 @@
+package bidirectional121;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.entities.Person;
+import com.entities.Vehicle;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        Configuration cfg = new Configuration();
+        cfg.configure("bidirectional121/hibernate.cfg.xml");
+        SessionFactory sf = cfg.buildSessionFactory();
+        Person p = new Person();
+        
+        p.setName("Rupali");
+        p.setMob("1234567890");
+        p.setAddress("Indore");
+        p.setEmail("rupali8062@gmail.com");
+        
+        Vehicle v1 = new Vehicle();
+        v1.setColor("red");
+        v1.setCompany("honda");
+        v1.setVname("bike");
+        v1.setWheels(2);
+        v1.setPerson(p);
+        
+        Vehicle v2 = new Vehicle();
+        v1.setColor("blue");
+        v1.setCompany("volkswagon");
+        v1.setVname("car");
+        v1.setWheels(4);
+        v1.setPerson(p);
+        List<Vehicle> list = new ArrayList<Vehicle>();
+        list.add(v1);
+        list.add(v2);
+        p.setVehicle(list);
+        Session s  = sf.openSession();
+        Transaction tx = s.beginTransaction();
+        s.save(p);
+        tx.commit();
+        System.out.println("done");
+    }
+}

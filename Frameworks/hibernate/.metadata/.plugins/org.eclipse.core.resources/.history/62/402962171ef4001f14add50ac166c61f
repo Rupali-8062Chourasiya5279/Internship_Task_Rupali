@@ -1,0 +1,5 @@
+package xmlmapping;
+
+public class User {
+
+}

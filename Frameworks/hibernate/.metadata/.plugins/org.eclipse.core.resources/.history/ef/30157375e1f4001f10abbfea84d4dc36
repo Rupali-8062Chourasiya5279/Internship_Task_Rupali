@@ -1,0 +1,39 @@
+package implementingservice;
+
+import java.util.Scanner;
+
+import crudoperation.DeleteUserData;
+
+public class DeleteBl implements DeleteUserData {
+
+	
+	@Override
+	public void delete() {
+		Scanner sc = new Scanner(System.in);
+		int c;
+		do
+		{
+			System.out.println("1. Delete single user .");
+			System.out.println("2. Delete multiple user .");
+			System.out.println("Enter your choice : ");
+			c = sc.nextInt();
+			switch(c)
+			{
+			case 1: 
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			default:
+				System.out.println("Enter choice from given options only.");
+			}
+			
+		}
+		while(c!=3);
+		
+	}
+	
+	
+
+}

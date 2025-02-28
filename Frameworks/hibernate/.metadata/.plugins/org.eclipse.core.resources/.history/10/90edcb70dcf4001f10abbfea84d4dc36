@@ -1,0 +1,50 @@
+package com.hqlcrudoperations;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.entities.User;
+
+public class App 
+{
+    public static void main( String[] args ) throws ParseException
+    {
+        System.out.println( "Hello World!" );
+        
+        Configuration cfg = new Configuration();
+        cfg.configure("hibernate.cfg.xml");
+        SessionFactory sf = cfg.buildSessionFactory();
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter User id : ");
+        int id = sc.nextInt();
+        System.out.println("Enter user name : ");
+        String name = sc.next();
+        System.out.println("Enter user mobile : ");
+        String mobile = sc.next();
+        System.out.println("Enter user city : ");
+        String city = sc.next();
+        System.out.println("Enter user email : ");
+        String email = sc.next();
+        System.out.println("Enter user password : ");
+        String password = sc.next();
+        System.out.println("Enter user date of birth : ");
+        String dob = sc.next();
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
+        
+        User u = new User(id, name, email, password, date, city, mobile);
+        
+         Session s = sf.openSession();
+         Transaction tx = s.beginTransaction();
+         s.save(u);
+         tx.commit();
+         System.out.println("saved");
+    }
+}

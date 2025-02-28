@@ -1,0 +1,19 @@
+package crudoperation;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public interface UpdateUserData {
+	
+	void updateUserData(Session s,Transaction tx);
+	void updateData1(Session s,Transaction tx,int id);
+	void updateData2(Session s,Transaction tx,int id);
+	void updateData3(Session s,Transaction tx,int id);
+	void updateData4(Session s,Transaction tx,int id);
+	void updateData5(Session s,Transaction tx,int id);
+	void updateData6(Session s,Transaction tx,int id);
+	void updateData7(Session s,Transaction tx,int id);
+	
+	
+
+}

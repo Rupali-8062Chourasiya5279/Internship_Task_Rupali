@@ -1,0 +1,271 @@
+package implementingservice;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import com.entities.User;
+
+import crudoperation.UpdateUserData;
+
+public class UpdateBl implements UpdateUserData{
+	Scanner sc = new Scanner(System.in);
+	
+
+	@Override
+	public void updateUserData(Session s, Transaction tx) throws ParseException {
+		UpdateBl ub = new UpdateBl();
+		int c;
+		do
+		{
+			System.out.println("1. Update All fields of user .");
+			System.out.println("2. Update City of user.");
+			System.out.println("3. Update Date of Birth of user .");
+			System.out.println("4. Update Password of user .");
+			System.out.println("5. Update Email id of user  .");
+			System.out.println("6. Update Name of user .");
+			System.out.println("7. Update Mobile number of user .");
+			System.out.println("8. Exit");
+			System.out.println("Enter your choice : ");
+			c = sc.nextInt();
+			
+			System.out.println("Enter User id :");
+			int id = sc.nextInt();
+			String hql = "from User";
+			Query q = s.createQuery(hql);
+			List<User> l = q.list();
+			System.out.println(l);
+			int cid = l.get(0).getUid();
+			if(id==cid) {
+			switch(c)
+			{
+			case 1: updateData1(s, tx, id);
+				break;
+				
+			case 2: updateData2(s, tx, id);
+				break;
+				
+			case 3: updateData3(s, tx, id);
+			break;
+			
+			case 4: updateData4(s, tx, id);
+			break;
+			
+			case 5: updateData5(s, tx, id);
+				break;
+				
+			case 6: updateData6(s, tx, id);
+				break;
+				
+			case 7: updateData7(s, tx, id);
+			break;
+				
+			case 8: System.out.println("Exiting from updating the users.");
+				break;
+				
+			default:
+				System.out.println("Enter choice from given options only.");
+			}
+			}
+			else
+			{
+				System.out.println("Id does not exist");
+			}
+		}
+		while(c!=8);
+		
+	}
+
+
+	@Override
+	public void updateData1(Session s, Transaction tx, int id) throws ParseException {
+		
+	    System.out.println("Enter user name : ");
+        String name = sc.next();
+        
+        System.out.println("Enter user mobile : ");
+        String mobile = sc.next();
+        
+        System.out.println("Enter user city : ");
+        String city = sc.next();
+        
+        System.out.println("Enter user email : ");
+        String email = sc.next();
+        
+        System.out.println("Enter user password : ");
+        String password = sc.next();
+        
+        System.out.println("Enter user date of birth : ");
+        String dob = sc.next();
+        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
+        
+		String hql = "Update User set ucity=:a, udob=:b ,uname=:c, uemail=:d, umobile=:e, upassword=:f where uid=:g";
+		
+		Query q =s.createQuery(hql);
+		q.setParameter("a", city);
+		q.setParameter("b", date);
+		q.setParameter("c", name);
+		q.setParameter("d", email);
+		q.setParameter("e", mobile);
+		q.setParameter("f", password);
+		q.setParameter("g", id);
+		int r = q.executeUpdate();
+		if(r>=1)
+		{
+			tx.commit();
+		}
+		System.out.println("updated.....");
+		
+	}
+
+
+	@Override
+	public void updateData2(Session s, Transaction tx, int id) {
+	        
+	        System.out.println("Enter user city : ");
+	        String city = sc.next();
+	        
+			String hql = "Update User set ucity=:a where uid=:b";
+			
+			Query q =s.createQuery(hql);
+			
+			q.setParameter("a", city);
+			q.setParameter("b", id);
+			
+			int r = q.executeUpdate();
+			if(r>=1)
+			{
+				tx.commit();
+			}
+			System.out.println("updated.....");
+			
+		
+	}
+
+
+	@Override
+	public void updateData3(Session s, Transaction tx, int id) throws ParseException {
+	        
+	        System.out.println("Enter user date of birth : ");
+	        String dob = sc.next();
+	        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
+	        
+			String hql = "Update User set  udob=:a where uid=:b";
+			
+			Query q =s.createQuery(hql);
+			
+			q.setParameter("a", date);
+			
+			q.setParameter("b", id);
+			int r = q.executeUpdate();
+			if(r>=1)
+			{
+				tx.commit();
+			}
+			System.out.println("updated.....");
+	}
+
+
+	@Override
+	public void updateData4(Session s, Transaction tx, int id) {
+
+	        System.out.println("Enter user password : ");
+	        String password = sc.next();
+	      
+			String hql = "Update User set upassword=:a where uid=:b";
+			
+			Query q =s.createQuery(hql);
+			
+			q.setParameter("a", password);
+			q.setParameter("b", id);
+			int r = q.executeUpdate();
+			if(r>=1)
+			{
+				tx.commit();
+			}
+			System.out.println("updated.....");
+			
+		
+	}
+
+
+	@Override
+	public void updateData5(Session s, Transaction tx, int id) {
+	        
+	        System.out.println("Enter user email : ");
+	        String email = sc.next();
+ 
+			String hql = "Update User set uemail=:a where uid=:b";
+			
+			Query q =s.createQuery(hql);
+			
+			q.setParameter("a", email);
+			q.setParameter("b", id);
+			int r = q.executeUpdate();
+			if(r>=1)
+			{
+				tx.commit();
+			}
+			System.out.println("updated.....");
+			
+		
+	}
+
+
+	@Override
+	public void updateData6(Session s, Transaction tx, int id) {
+			System.out.println("Enter user name : ");
+	        String name = sc.next();
+	        
+			String hql = "Update User set uname=:a where uid=:b";
+			
+			Query q =s.createQuery(hql);
+			
+			q.setParameter("a", name);
+			q.setParameter("b", id);
+			int r = q.executeUpdate();
+			if(r>=1)
+			{
+				tx.commit();
+			}
+			System.out.println("updated.....");
+			
+		
+	}
+
+
+	@Override
+	public void updateData7(Session s, Transaction tx, int id) {
+	        
+	        System.out.println("Enter user mobile : ");
+	        String mobile = sc.next();
+
+			String hql = "Update User set umobile=:a where uid=:b";
+			
+			Query q =s.createQuery(hql);
+			
+			q.setParameter("a", mobile);
+			q.setParameter("b", id);
+			
+			int r = q.executeUpdate();
+			if(r>=1)
+			{
+				tx.commit();
+			}
+			System.out.println("updated.....");
+			
+		
+	}
+
+
+	
+	
+
+}

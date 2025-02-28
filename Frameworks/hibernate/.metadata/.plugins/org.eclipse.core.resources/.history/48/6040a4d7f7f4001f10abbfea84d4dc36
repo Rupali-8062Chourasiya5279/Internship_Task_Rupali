@@ -1,0 +1,7 @@
+package implementingservice;
+
+import crudoperation.SelectUserData;
+
+public class SelectBl implements SelectUserData{
+
+}

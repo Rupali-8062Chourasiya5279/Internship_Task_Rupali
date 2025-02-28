@@ -1,0 +1,7 @@
+package implementingservice;
+
+import crudoperation.UpdateUserData;
+
+public class UpdateBl implements UpdateUserData{
+
+}

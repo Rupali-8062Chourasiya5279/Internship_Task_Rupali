@@ -1,0 +1,20 @@
+package com.quickservemain.entities;
+
+import java.util.Date;
+
+public class Appointments {
+	
+	private String appointmentid;
+	private Service serviceid;
+	private Users userid;
+	private Date appointmentdate;
+	private String timeslot;
+	private Status status;
+	private Date createdat;
+	private Date updateat;
+	
+	public enum Status 
+	{
+		book,cancelled,complete;
+	}
+}

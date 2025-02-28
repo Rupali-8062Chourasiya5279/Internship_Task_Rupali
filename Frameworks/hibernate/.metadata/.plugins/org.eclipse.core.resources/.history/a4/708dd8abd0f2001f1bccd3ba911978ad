@@ -1,0 +1,19 @@
+package onetoonemapping;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.entities.Question;
+
+public class AppEmp {
+
+	public static void main(String[] args) {
+		Configuration cfg = new Configuration();
+		cfg.configure("onetoonemapping/hibernate.cfg.xml");
+		SessionFactory sf = cfg.buildSessionFactory();
+		
+		
+
+	}
+
+}

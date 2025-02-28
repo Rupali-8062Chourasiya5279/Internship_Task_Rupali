@@ -1,0 +1,42 @@
+package AnnnotationCascade;
+
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.entities.Course;
+import com.entities.Student;
+
+public class AppStudentCourse {
+
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) {
+		
+		Configuration cfg = new Configuration();
+		cfg.configure("AnnnotationCascade/hibernate.cfg.xml");
+		SessionFactory sf = cfg.buildSessionFactory();
+		
+		Session s = sf.openSession();
+		Transaction tx = s.beginTransaction();
+		Student s1 = new Student();
+		s1.setName("Rupali");
+		s1.setSdob(2025/01/01);
+		s1.setContact("1234456565");
+		
+		Course c1 = new Course();
+		c1.setCoursename("BCA");
+		
+		s1.setCourse(c1);
+		
+		
+		s.save(s1);
+		tx.commit();
+		
+		System.out.println("done");
+
+	}
+
+}

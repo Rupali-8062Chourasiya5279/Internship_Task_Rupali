@@ -1,0 +1,5 @@
+package com.quickservemain.entities;
+
+public class Notifications {
+
+}

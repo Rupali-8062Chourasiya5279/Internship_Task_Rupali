@@ -1,0 +1,17 @@
+package crudoperation;
+
+public class Snippet {
+	System.out.println("Enter user id : ");
+			int id = sc.nextInt();
+			tx = s.beginTransaction();
+			String hql = "delete from User where uid=:x";
+			Query q=s.createQuery(hql);
+			q.setParameter("x", id);
+			int i= q.executeUpdate();
+			if(i>0)
+			{
+			System.out.println("deleted user is "+id);
+			tx.commit();
+			}
+}
+

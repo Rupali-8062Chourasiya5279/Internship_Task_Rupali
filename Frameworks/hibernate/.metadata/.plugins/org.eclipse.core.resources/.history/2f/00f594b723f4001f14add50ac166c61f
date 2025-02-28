@@ -1,0 +1,5 @@
+package annotationmapping;
+
+public class UserInfo {
+
+}

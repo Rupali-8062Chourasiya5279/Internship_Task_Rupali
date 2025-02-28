@@ -1,0 +1,29 @@
+package implementingservice;
+
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import crudoperation.UpdateUserData;
+
+public class UpdateBl implements UpdateUserData{
+	Scanner sc = new Scanner(System.in);
+	
+
+	@Override
+	public void updateUserData(Session s, Transaction tx) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void updateData1(Session s, Transaction tx, int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

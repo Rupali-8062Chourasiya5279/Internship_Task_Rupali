@@ -1,0 +1,54 @@
+package implementingservice;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.query.Query;
+
+import com.entities.User;
+
+import crudoperation.SelectUserData;
+
+public class SelectBl implements SelectUserData{
+
+	Scanner sc = new Scanner(System.in);
+	@Override
+	public void selectData() {
+		int c;
+		do
+		{
+			System.out.println("1. Show  Users by Name .");
+			System.out.println("2. Select  User by City.");
+			System.out.println("3. Select User by Id .");
+			System.out.println("4. Select User by DOB .");
+			System.out.println("5. Exit");
+			System.out.println("Enter your choice : ");
+			c = sc.nextInt();
+			
+			switch(c)
+			{
+			case 1:
+				break;
+				
+			case 2:
+				break;
+				
+			case 3: 
+				break;
+			
+			case 4:
+				break;
+				
+			case 5: System.out.println("Exiting from fetching the users.");
+				break;
+				
+			default:
+				System.out.println("Enter choice from given options only.");
+			}
+			
+		}
+		while(c!=8);
+		
+	}
+
+}

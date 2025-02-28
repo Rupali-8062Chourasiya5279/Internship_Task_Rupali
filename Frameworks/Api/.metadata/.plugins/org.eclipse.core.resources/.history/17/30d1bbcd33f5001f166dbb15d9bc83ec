@@ -1,0 +1,15 @@
+package com.quickservemain.entities;
+
+import java.util.Date;
+
+public class Reviews {
+	
+	private String reviewid;
+	private Service serviceid;
+	private Users userid;
+	private int rating;
+	private String comment;
+	private Date createdat;
+	private Date updateat;
+
+}

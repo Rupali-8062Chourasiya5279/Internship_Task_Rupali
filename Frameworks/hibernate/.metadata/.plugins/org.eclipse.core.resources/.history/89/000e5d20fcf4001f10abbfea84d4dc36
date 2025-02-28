@@ -1,0 +1,13 @@
+package crudoperation;
+
+import org.hibernate.Session;
+
+public interface SelectUserData {
+	
+	void selectData(Session s);
+	void selectByName(Session s);
+	void selectByCity(Session s);
+	void selectById(Session s);
+	void selectByDOB(Session s);
+
+}

@@ -1,0 +1,19 @@
+package implementingservice;
+
+import java.util.Scanner;
+
+import crudoperation.DeleteUserData;
+
+public class DeleteBl implements DeleteUserData {
+
+	Scanner sc = new Scanner(System.in);
+	System.out.println("");
+	@Override
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

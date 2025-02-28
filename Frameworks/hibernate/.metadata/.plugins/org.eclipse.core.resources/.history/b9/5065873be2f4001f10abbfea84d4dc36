@@ -1,0 +1,9 @@
+package crudoperation;
+
+import java.text.ParseException;
+
+public interface InsertUserData {
+	
+	 void insertdata() throws ParseException;
+
+}

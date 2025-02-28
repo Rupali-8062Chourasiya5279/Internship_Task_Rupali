@@ -1,0 +1,13 @@
+package implementingservice;
+
+import crudoperation.SelectUserData;
+
+public class SelectBl implements SelectUserData{
+
+	@Override
+	public void selectData() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

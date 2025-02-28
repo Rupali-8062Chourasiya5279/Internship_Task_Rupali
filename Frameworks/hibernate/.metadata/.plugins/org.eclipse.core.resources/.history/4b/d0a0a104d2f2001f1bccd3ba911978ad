@@ -1,0 +1,10 @@
+package bidirectionalmapping;
+
+public class AppEmpAdd {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

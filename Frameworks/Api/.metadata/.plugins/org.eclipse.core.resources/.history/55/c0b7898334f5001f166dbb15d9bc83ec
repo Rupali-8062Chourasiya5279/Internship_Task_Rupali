@@ -1,0 +1,14 @@
+package com.quickservemain.entities;
+
+import java.util.Date;
+
+
+public class Notifications {
+	
+	private String notificationid;
+	private Users userid;
+	private String message;
+	private boolean isRead;
+	private Date createdat;
+
+}

@@ -1,0 +1,9 @@
+package implementingservice;
+
+import crudoperation.DeleteUserData;
+
+public class DeleteBl implements DeleteUserData {
+	
+	
+
+}

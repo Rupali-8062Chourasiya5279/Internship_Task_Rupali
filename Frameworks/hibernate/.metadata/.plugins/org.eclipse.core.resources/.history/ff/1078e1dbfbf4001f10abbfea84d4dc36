@@ -1,0 +1,117 @@
+package implementingservice;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import com.entities.User;
+
+import crudoperation.SelectUserData;
+
+public class SelectBl implements SelectUserData{
+
+	Scanner sc = new Scanner(System.in);
+	@Override
+	public void selectData(Session s) {
+		int c;
+		do
+		{
+			System.out.println("1. Show  Users by Name .");
+			System.out.println("2. Select  User by City.");
+			System.out.println("3. Select User by Id .");
+			System.out.println("4. Select User by DOB .");
+			System.out.println("5. Exit");
+			System.out.println("Enter your choice : ");
+			c = sc.nextInt();
+			
+			switch(c)
+			{
+			case 1:selectByName(s);
+				break;
+				
+			case 2:selectByCity();
+				break;
+				
+			case 3: selectById();
+				break;
+			
+			case 4:selectByDOB();
+				break;
+				
+			case 5: System.out.println("Exiting from fetching the users.");
+				break;
+				
+			default:
+				System.out.println("Enter choice from given options only.");
+			}
+			
+		}
+		while(c!=5);
+		
+	}
+	@Override
+	public void selectByName(Session s) {
+		
+		System.out.println("Enter User Name :");
+		String name = sc.next();
+		
+		String hql = "from User where uname=:x";
+		Query<User> q=s.createQuery(hql);
+		q.setParameter("x", name);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+
+	}
+	@Override
+	public void selectByCity(Session s) {
+		System.out.println("Enter User City :");
+		String city = sc.next();
+		
+		String hql = "from User where ucity=:x";
+		Query<User> q=s.createQuery(hql);
+		q.setParameter("x", city);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+		
+	}
+	@Override
+	public void selectById(Session s) {
+		System.out.println("Enter User Name :");
+		String name = sc.next();
+		
+		String hql = "from User where uname=:x";
+		Query<User> q=s.createQuery(hql);
+		q.setParameter("x", name);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+		
+	}
+	@Override
+	public void selectByDOB(Session s) {
+		System.out.println("Enter User Name :");
+		String name = sc.next();
+		
+		String hql = "from User where uname=:x";
+		Query<User> q=s.createQuery(hql);
+		q.setParameter("x", name);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+		
+	}
+
+	
+}

@@ -1,0 +1,74 @@
+package implementingservice;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import crudoperation.UpdateUserData;
+
+public class UpdateBl implements UpdateUserData{
+	Scanner sc = new Scanner(System.in);
+	
+
+	@Override
+	public void updateUserData(Session s, Transaction tx) {
+		UpdateBl ub = new UpdateBl();
+		int c;
+		do
+		{
+			System.out.println("1. Update All fields of user .");
+			System.out.println("2. Update City of user.");
+			System.out.println("3. Update Date of Birth of user .");
+			System.out.println("4. Update Password of user .");
+			System.out.println("5. Update Email id of user  .");
+			System.out.println("6. Update Name of user .");
+			System.out.println("7. Update Mobile number of user .");
+			System.out.println("8. Exit");
+			System.out.println("Enter your choice : ");
+			c = sc.nextInt();
+			switch(c)
+			{
+			case 1: 
+				break;
+				
+			case 2: 
+				break;
+			case 3: 
+			break;
+			
+			case 4: 
+			break;
+			
+			case 5: 
+				break;
+				
+			case 6: 
+				break;
+			case 7: 
+			break;
+				
+			case 8: System.out.println("Exiting from updating the users.");
+				break;
+				
+			default:
+				System.out.println("Enter choice from given options only.");
+			}
+			
+		}
+		while(c!=8);
+		
+	}
+
+
+	@Override
+	public void updateData1(Session s, Transaction tx, int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

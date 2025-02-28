@@ -1,0 +1,5 @@
+package com.hqlcrudoperations;
+
+public interface InsertUserData {
+
+}

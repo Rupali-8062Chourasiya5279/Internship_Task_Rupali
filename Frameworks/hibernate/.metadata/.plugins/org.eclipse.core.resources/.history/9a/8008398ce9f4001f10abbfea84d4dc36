@@ -1,0 +1,13 @@
+package crudoperation;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public interface UpdateUserData {
+	
+	void updateData(Session s,Transaction tx,int id);
+	
+	
+	
+
+}

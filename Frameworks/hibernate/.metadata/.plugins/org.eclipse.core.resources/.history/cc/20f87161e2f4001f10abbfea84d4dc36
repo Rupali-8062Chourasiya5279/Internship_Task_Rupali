@@ -1,0 +1,8 @@
+package crudoperation;
+
+public interface DeleteUserData {
+	
+	void delete();
+	void delte1();
+
+}

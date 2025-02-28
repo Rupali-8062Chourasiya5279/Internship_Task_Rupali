@@ -1,0 +1,11 @@
+package crudoperation;
+
+import java.text.ParseException;
+
+import org.hibernate.Session;
+
+public interface InsertUserData {
+	
+	 void insertdata(Session s) throws ParseException;
+
+}

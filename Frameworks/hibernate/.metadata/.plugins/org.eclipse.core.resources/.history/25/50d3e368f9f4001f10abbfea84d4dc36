@@ -1,0 +1,11 @@
+package crudoperation;
+
+public interface SelectUserData {
+	
+	void selectData();
+	void selectByName();
+	void selectByCity();
+	void selectById();
+	void selectByDOB();
+
+}

@@ -1,0 +1,10 @@
+package getloadmethods;
+
+public class Getmethod {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

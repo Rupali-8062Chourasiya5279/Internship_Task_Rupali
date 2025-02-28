@@ -1,0 +1,138 @@
+package implementingservice;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import com.entities.User;
+
+import crudoperation.SelectUserData;
+
+public class SelectBl implements SelectUserData{
+
+	Scanner sc = new Scanner(System.in);
+	@Override
+	public void selectData(Session s) throws ParseException {
+		int c;
+		do
+		{
+			System.out.println("1. Show  Users by Name .");
+			System.out.println("2. Select  User by City.");
+			System.out.println("3. Select User by Id .");
+			System.out.println("4. Select User by DOB .");
+			System.out.println("5. Select all users.");
+			System.out.println("6. Select id,name,city of users.");
+			System.out.println("7. Select name,email,password users.");
+			System.out.println("8. Exit");
+			System.out.println("Enter your choice : ");
+			c = sc.nextInt();
+			
+			switch(c)
+			{
+			case 1:selectByName(s);
+				break;
+				
+			case 2:selectByCity(s);
+				break;
+				
+			case 3: selectById(s);
+				break;
+			
+			case 4:selectByDOB(s);
+				break;
+				
+			case 5:selectAll(s);
+				break;
+				
+			case 8: System.out.println("Exiting from fetching the users.");
+				break;
+				
+			default:
+				System.out.println("Enter choice from given options only.");
+			}
+			
+		}
+		while(c!=8);
+		
+	}
+	@Override
+	public void selectByName(Session s) {
+		
+		System.out.println("Enter User Name :");
+		String name = sc.next();
+		
+		String hql = "from User where uname=:x";
+		Query<User> q=s.createQuery(hql);
+		q.setParameter("x", name);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+
+	}
+	@Override
+	public void selectByCity(Session s) {
+		System.out.println("Enter User City :");
+		String city = sc.next();
+		
+		String hql = "from User where ucity=:x";
+		Query<User> q=s.createQuery(hql);
+		q.setParameter("x", city);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+		
+	}
+	@Override
+	public void selectById(Session s) {
+		System.out.println("Enter User Id :");
+		int id = sc.nextInt();
+		
+		String hql = "from User where uid=:x";
+		Query<User> q=s.createQuery(hql);
+		q.setParameter("x", id);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+		
+	}
+	@Override
+	public void selectByDOB(Session s) throws ParseException {
+		System.out.println("Enter User DOB :");
+		String dob = sc.next();
+		Date d = new SimpleDateFormat("dd/MM/yyyy").parse(dob);
+		String hql = "from User where udob=:x";
+		Query<User> q=s.createQuery(hql);
+		q.setParameter("x", d);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+		
+	}
+
+	@Override
+	public void selectAll(Session s)  {
+		String hql = "from User";
+		Query<User> q=s.createQuery(hql);
+		List<User> l = q.list();
+		for(User u : l)
+		{
+			System.out.println(u.getUid()+"     "+u.getUname()+"        "+u.getUpassword()+"      "+u.getUemail()+"       "+u.getUmobile()+"     "+u.getUcity());
+		}
+		
+	}
+
+	
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+    <class name="com.entities.User" table="user_details">
+    <property id="uid"/>
+    <property name="uname"></property>
+    <property name="uemail"></property>
+    <property name="upassword"></property>
+    <property name="umobile"></property>
+    <property name="ucity"></property>
+    <property name="udob"></property>
+    </class>
+    </hibernate-mapping>

@@ -1,0 +1,12 @@
+package crudoperation;
+
+import java.util.Scanner;
+
+public interface UpdateUserData {
+	
+	Scanner sc = new Scanner(System.in);
+	
+	
+	
+
+}

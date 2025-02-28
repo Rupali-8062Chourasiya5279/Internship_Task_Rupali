@@ -1,0 +1,17 @@
+package com.entities;
+
+import java.sql.Date;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Student {
+
+	@Id
+	private int sid;
+	private String name;
+	private Date sdob;
+	private String contact;
+	private Course course;
+}
